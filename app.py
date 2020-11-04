@@ -62,8 +62,6 @@ data = init_data()
 
 st.title('Is My Baby Heavy?')
 
-st.sidebar.markdown('# Info')
-
 age, weight, sex = st.beta_columns((1,1,1))
 
 with age:

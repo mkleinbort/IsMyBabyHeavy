@@ -46,7 +46,7 @@ def row_to_dist(x):
 def add_dist(df):
     return df.assign(Dist = lambda x: x.apply(lambda row: row_to_dist(row), axis=1))
 
-@st.cache(allow_output_mutation=True)
+@st.cache_data
 def init_data():
     df = (
         load_data()
@@ -62,7 +62,7 @@ data = init_data()
 
 st.title('Is My Baby Heavy?')
 
-age, weight, sex = st.beta_columns((1,1,1))
+age, weight, sex = st.columns((1,1,1))
 
 with age:
     baby_age = st.number_input('Baby age in months', min_value=0.0, max_value=36.0, step=0.25, value=2.0)
